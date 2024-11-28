@@ -1,0 +1,39 @@
+.study-groups-container {
+    padding: 20px;
+    background-color: black;
+    color: white;
+    min-height: 100vh;
+  }
+  
+  .topic-input {
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    margin-right: 10px;
+    width: 70%;
+  }
+  
+  .add-topic-button {
+    padding: 10px 20px;
+    background-color: #ff6f61;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .add-topic-button:hover {
+    background-color: #ff8b7d;
+  }
+  
+  .topics-list {
+    margin-top: 20px;
+  }
+  
+  .topic-item {
+    background-color: #1e1e1e;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+  }
+  
