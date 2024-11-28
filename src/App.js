@@ -5,6 +5,8 @@ import EventCalendar from "./components/EventCalendar";
 import StudyGroups from "./components/StudyGroups";
 import LostAndFound from "./components/LostAndFound";
 import Announcements from "./components/Announcements";
+import LoginRegisterPage from "./components/LoginRegisterPage";
+
 
 const App = () => {
   return (
@@ -16,6 +18,8 @@ const App = () => {
           <Route path="/study-groups" element={<StudyGroups />} />
           <Route path="/lost-and-found" element={<LostAndFound />} />
           <Route path="/announcements" element={<Announcements />} />
+          <Route path="/" element={<LoginRegisterPage/>}/>
+          
         </Routes>
       </div>
     </Router>
