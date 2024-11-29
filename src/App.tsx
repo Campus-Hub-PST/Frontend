@@ -45,9 +45,6 @@ function App() {
         {isAuthenticated ? (
           <>
             <Navbar />
-            <button onClick={handleLogout} className="btn btn-danger">
-              Logout
-            </button>
             <Routes>
               <Route path="/" element={<Events />} />
               <Route path="/announcements" element={<Announcements />} />
