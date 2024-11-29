@@ -9,7 +9,7 @@ const sampleEvents: Event[] = [
     title: 'End of Semester Concert',
     description: 'Join us for an amazing evening of music featuring student bands and special guests.',
     date: new Date('2024-03-25T19:00:00'),
-    location: 'University Amphitheater',
+    location: 'Polaris School of Technology',
     category: 'cultural',
     image: 'https://images.unsplash.com/photo-1501281668745-f7f57925c3b4?auto=format&fit=crop&q=80'
   },
