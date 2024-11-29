@@ -5,21 +5,29 @@ import { auth, db } from "../components/firebase";
 
 const UserInfo: React.FC = () => {
   const [user, setUser] = useState<User | null>(null);
-  const [firstName, setFirstName] = useState<string | null>(null);
+  const [userData, setUserData] = useState<{ firstName: string; lastName: string } | null>(null);
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, async (currentUser) => {
       setUser(currentUser);
 
       if (currentUser) {
-        // Fetch user data from Firestore collection "user" using uid
-        const userDocRef = doc(db, "user", currentUser.uid);
-        const userDoc = await getDoc(userDocRef);
+        try {
+          // Fetch user data from Firestore collection "Users" using uid
+          const userDocRef = doc(db, "Users", currentUser.uid); // Ensure collection is "Users"
+          const userDoc = await getDoc(userDocRef);
 
-        if (userDoc.exists()) {
-          setFirstName(userDoc.data().firstName || "No Name");
-        } else {
-          console.log("No such document!");
+          if (userDoc.exists()) {
+            const data = userDoc.data();
+            setUserData({
+              firstName: data.firstName || "No First Name",
+              lastName: data.lastName || "No Last Name",
+            });
+          } else {
+            console.log("No such document!");
+          }
+        } catch (error) {
+          console.error("Error fetching user data:", error);
         }
       }
     });
@@ -29,9 +37,11 @@ const UserInfo: React.FC = () => {
 
   return (
     <div style={styles.container}>
-      {user ? (
+      {user && userData ? (
         <div style={styles.card}>
-          <h2 style={styles.heading}>Welcome, {firstName || "User"}!</h2>
+          <h2 style={styles.heading}>
+            Welcome, {userData.firstName} {userData.lastName}!
+          </h2>
           <p style={styles.email}>Email: {user.email}</p>
           <button style={styles.button} onClick={() => auth.signOut()}>
             Logout
@@ -63,6 +73,7 @@ const styles: { [key: string]: React.CSSProperties } = {
   heading: {
     fontSize: "24px",
     marginBottom: "10px",
+    color: "black"
   },
   email: {
     fontSize: "16px",
