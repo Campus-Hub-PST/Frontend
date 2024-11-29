@@ -44,7 +44,7 @@ function Register() {
   };
 
   return (
-    <form onSubmit={handleRegister} style={{ color: 'red' }}>
+    <form onSubmit={handleRegister} >
       <h3>Sign Up</h3>
 
       <div className="mb-3">

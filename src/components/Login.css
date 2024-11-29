@@ -1,0 +1,94 @@
+/* General Body Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #1a202c; /* Dark background */
+    color: #fff; /* White text */
+    padding: 20px;
+  }
+  
+  /* Login and Register Form Styles */
+  form {
+    max-width: 400px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #2d3748; /* Dark gray background */
+    border-radius: 8px;
+    
+  }
+  
+  h3 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .mb-3 {
+    margin-bottom: 15px;
+  }
+  
+  input {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+    background-color: #4a5568;
+    color: white;
+  }
+  
+  input:focus {
+    border-color: #63b3ed;
+    outline: none;
+  }
+  
+  button {
+    width: 100%;
+    padding: 10px;
+    background-color: #3182ce; /* Blue background */
+    border: none;
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #2b6cb0; /* Darker blue */
+  }
+  
+  /* Forgot Password and Register Links */
+  .forgot-password a,
+  .forgot-password a:hover {
+    color: #63b3ed;
+    text-decoration: none;
+  }
+  
+  /* Logout Button */
+  .btn-danger {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #e53e3e; /* Red background */
+    border: none;
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .btn-danger:hover {
+    background-color: #c53030; /* Darker red */
+  }
+  
+  /* Navbar Styles */
+  .navbar {
+    background-color: #2d3748;
+    padding: 10px 20px;
+  }
+  
+  .navbar a {
+    color: #fff;
+    text-decoration: none;
+    margin-right: 20px;
+  }
+  
+  .navbar a:hover {
+    color: #63b3ed;
+  }
+  

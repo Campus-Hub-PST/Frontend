@@ -32,7 +32,7 @@ function Login() {
   };
 
   return (
-    <form onSubmit={handleSubmit} style={{ color: 'red' }}>
+    <form onSubmit={handleSubmit} >
       <h3>Login</h3>
 
       <div className="mb-3">

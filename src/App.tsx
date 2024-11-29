@@ -10,7 +10,7 @@ import Register from './pages/Register';
 import { ToastContainer } from 'react-toastify';
 import { onAuthStateChanged, User, signOut } from 'firebase/auth';
 import { auth } from './components/firebase';
-
+import './components/Login.css';
 function App() {
   // State to track if the user is authenticated
   const [isAuthenticated, setIsAuthenticated] = useState<boolean>(false);
@@ -39,7 +39,7 @@ function App() {
         {isAuthenticated ? (
           <>
             <Navbar />
-            <button onClick={handleLogout} className="btn btn-danger" style={{ color: 'red' }}>
+            <button onClick={handleLogout} className="btn btn-danger">
               Logout
             </button>
             <Routes>
