@@ -1,16 +1,22 @@
-import React, { useEffect, useState } from 'react';
-import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
-import Navbar from './components/Navbar';
-import Events from './pages/Events';
-import Announcements from './pages/Announcements';
-import StudyGroups from './pages/StudyGroups';
-import LostFound from './pages/LostFound';
-import Login from './components/Login';
-import Register from './pages/Register';
-import { ToastContainer } from 'react-toastify';
-import { onAuthStateChanged, User, signOut } from 'firebase/auth';
-import { auth } from './components/firebase';
-import './components/Login.css';
+import React, { useEffect, useState } from "react";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Navigate,
+} from "react-router-dom";
+import Navbar from "./components/Navbar";
+import Events from "./pages/Events";
+import Announcements from "./pages/Announcements";
+import StudyGroups from "./pages/StudyGroups";
+import LostFound from "./pages/LostFound";
+import Login from "./components/Login";
+import Register from "./pages/Register";
+import UserPage from "./pages/UserPage";
+import { ToastContainer } from "react-toastify";
+import { onAuthStateChanged, User, signOut } from "firebase/auth";
+import { auth } from "./components/firebase";
+import "./components/Login.css";
 function App() {
   // State to track if the user is authenticated
   const [isAuthenticated, setIsAuthenticated] = useState<boolean>(false);
@@ -47,6 +53,7 @@ function App() {
               <Route path="/announcements" element={<Announcements />} />
               <Route path="/study-groups" element={<StudyGroups />} />
               <Route path="/lost-found" element={<LostFound />} />
+              <Route path="/user-page" element={<UserPage />} />
               <Route path="*" element={<Navigate to="/" />} />
             </Routes>
           </>
