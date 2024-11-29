@@ -13,8 +13,8 @@ const sampleGroups: StudyGroup[] = [
   },
   {
     id: '2',
-    name: 'Physics Lab Prep',
-    course: 'PHYS 102 - General Physics',
+    name: 'Django Study Group',
+    course: 'CS 301 - Python Programming',
     members: 5,
     nextSession: new Date('2024-03-19T14:00:00'),
     isOnline: false
