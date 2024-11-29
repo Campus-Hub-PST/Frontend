@@ -1,0 +1,4 @@
+.delete-button {
+    transform: translateX(100px) translateY(100px);
+    width: 10vw;
+}
