@@ -36,16 +36,23 @@ const sampleItems: LostItem[] = [
 export default function LostFound() {
   const [status, setStatus] = useState<'all' | 'lost' | 'found'>('all');
   const [searchTerm, setSearchTerm] = useState('');
+  const [contactPhone, setContactPhone] = useState<string | null>(null);
 
-  const filteredItems = sampleItems.filter(item => 
+  const filteredItems = sampleItems.filter(item =>
     (status === 'all' || item.status === status) &&
     (item.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-     item.description.toLowerCase().includes(searchTerm.toLowerCase()))
+      item.description.toLowerCase().includes(searchTerm.toLowerCase()))
   );
 
   const handleContact = (itemId: string) => {
     console.log(`Contacting about item ${itemId}`);
-    // Implement contact functionality
+    // Simulate fetching phone number (replace with actual logic if necessary)
+    const phoneNumber = '123-456-7890'; // Replace with dynamic data if needed
+    setContactPhone(phoneNumber);
+  };
+
+  const closeModal = () => {
+    setContactPhone(null);
   };
 
   return (
@@ -72,7 +79,7 @@ export default function LostFound() {
             </select>
           </div>
         </div>
-        
+
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {filteredItems.map(item => (
             <LostItemCard
@@ -82,6 +89,24 @@ export default function LostFound() {
             />
           ))}
         </div>
+
+        {/* Modal for Contact Phone */}
+        {contactPhone && (
+          <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
+            <div className="bg-gray-800 rounded-lg shadow-lg p-6 w-11/12 max-w-md">
+              <h2 className="text-lg font-bold mb-4">Contact Information</h2>
+              <p className="mb-4">
+                Phone Number: <span className="text-purple-500">{contactPhone}</span>
+              </p>
+              <button
+                onClick={closeModal}
+                className="bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-lg"
+              >
+                Close
+              </button>
+            </div>
+          </div>
+        )}
       </div>
     </div>
   );

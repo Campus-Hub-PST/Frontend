@@ -13,8 +13,8 @@ const sampleGroups: StudyGroup[] = [
   },
   {
     id: '2',
-    name: 'Django Study Group',
-    course: 'CS 301 - Python Programming',
+    name: 'Physics Lab Prep',
+    course: 'PHYS 102 - General Physics',
     members: 5,
     nextSession: new Date('2024-03-19T14:00:00'),
     isOnline: false
@@ -32,17 +32,24 @@ const sampleGroups: StudyGroup[] = [
 export default function StudyGroups() {
   const [searchTerm, setSearchTerm] = useState('');
   const [showOnlineOnly, setShowOnlineOnly] = useState(false);
+  const [joinLink, setJoinLink] = useState<string | null>(null);
 
-  const filteredGroups = sampleGroups
-    .filter(group => 
-      (group.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-       group.course.toLowerCase().includes(searchTerm.toLowerCase())) &&
-      (!showOnlineOnly || group.isOnline)
-    );
+  const filteredGroups = sampleGroups.filter(group =>
+    (group.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      group.course.toLowerCase().includes(searchTerm.toLowerCase())) &&
+    (!showOnlineOnly || group.isOnline)
+  );
 
   const handleJoinGroup = (groupId: string) => {
-    console.log(`Joined group ${groupId}`);
-    // Implement join functionality
+    const group = sampleGroups.find(g => g.id === groupId);
+    if (group) {
+      const joinLink = `https://join.studygroup.com/${groupId}`;
+      setJoinLink(joinLink);
+    }
+  };
+
+  const closeModal = () => {
+    setJoinLink(null);
   };
 
   return (
@@ -69,7 +76,7 @@ export default function StudyGroups() {
             </label>
           </div>
         </div>
-        
+
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {filteredGroups.map(group => (
             <StudyGroupCard
@@ -79,6 +86,32 @@ export default function StudyGroups() {
             />
           ))}
         </div>
+
+        {/* Modal for Join Link */}
+        {joinLink && (
+          <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
+            <div className="bg-gray-800 rounded-lg shadow-lg p-6 w-11/12 max-w-md">
+              <h2 className="text-lg font-bold mb-4">Join Study Group</h2>
+              <p className="mb-4">
+                Here is your join link: <br />
+                <a
+                  href={joinLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-purple-500 underline"
+                >
+                  {joinLink}
+                </a>
+              </p>
+              <button
+                onClick={closeModal}
+                className="bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-lg"
+              >
+                Close
+              </button>
+            </div>
+          </div>
+        )}
       </div>
     </div>
   );
