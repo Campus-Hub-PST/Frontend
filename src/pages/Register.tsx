@@ -44,7 +44,8 @@ function Register() {
   };
 
   return (
-    <form onSubmit={handleRegister} >
+    <div className = "form-container">
+      <form onSubmit={handleRegister} >
       <h3>Sign Up</h3>
 
       <div className="mb-3">
@@ -99,6 +100,7 @@ function Register() {
         Already registered <a href="/login">Login</a>
       </p>
     </form>
+    </div>
   );
 }
 

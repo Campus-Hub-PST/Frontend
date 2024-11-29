@@ -5,6 +5,13 @@ body {
     color: #fff; /* White text */
     padding: 20px;
   }
+
+  .form-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh
+  }
   
   /* Login and Register Form Styles */
   form {
