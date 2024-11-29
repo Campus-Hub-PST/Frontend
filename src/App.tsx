@@ -29,15 +29,6 @@ function App() {
     return () => unsubscribe(); // Clean up listener on component unmount
   }, []);
 
-  const handleLogout = async () => {
-    try {
-      await signOut(auth); // Sign out the user
-      console.log("User logged out successfully");
-    } catch (error) {
-      console.log("Error logging out:", error.message);
-    }
-  };
-
   return (
     <Router>
       <div className="min-h-screen bg-gray-900">
